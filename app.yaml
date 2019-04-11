@@ -2,4 +2,4 @@ runtime: java
 env: flex
 handlers:
 - url: /.*
-  script: catalog
+  script: docker pull mickey0142/catalog_service
