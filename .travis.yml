@@ -1,8 +1,11 @@
 language: java
 jdk: oraclejdk8
 services:
-  - docker
+- docker
 deploy:
   provider: gae
-  keyfile: "client-secret.json"
-  project: "workshop-deploy-microservice"
+  keyfile: client-secret.json
+  project: workshop-deploy-microservice
+before_install:
+- openssl aes-256-cbc -K $encrypted_e49c2607727b_key -iv $encrypted_e49c2607727b_iv
+  -in client-secret.json.enc -out client-secret.json -d
