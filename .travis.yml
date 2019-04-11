@@ -6,7 +6,11 @@ deploy:
   provider: gae
   keyfile: client-secret.json
   project: workshop-deploy-microservice
-  skip_cleanup: true
 before_install:
 - openssl aes-256-cbc -K $encrypted_e49c2607727b_key -iv $encrypted_e49c2607727b_iv
   -in client-secret.json.enc -out client-secret.json -d
+- docker login -u "${DOCKER_USER}" -p "${DOCKER_PASS}"
+    && docker build -t mickey0142/catalog_service ./
+    && docker push mickey0142/catalog_service
+    && docker build -t mickey0142/product_service ./
+    && docker push mickey0142/product_service
