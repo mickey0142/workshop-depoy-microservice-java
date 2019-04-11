@@ -2,4 +2,4 @@ runtime: java
 env: flex
 handlers:
 - url: /.*
-  script: main.app
+  script: this field is required, but ignored
